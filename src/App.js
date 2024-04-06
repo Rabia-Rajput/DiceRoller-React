@@ -9,6 +9,20 @@ import DiceImage6 from './images/Dice6.png';
 
 
 function App() {
+  diceImages =[
+    DiceImage1,
+    DiceImage2,
+    DiceImage3,
+    DiceImage4,
+    DiceImage5,
+    DiceImage6
+  ]
+
+
+
+
+
+
   return (
     <div className="App">
       <center>
