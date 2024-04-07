@@ -20,13 +20,33 @@ function App() {
   ]
   const [image1, setImage1]=useState(diceImages[0]);
   const [image2, setImage2]=useState(diceImages[1]);
+  const [sum, setSum]=useState(0);
+  const [condition, setCondition]=useState('');
+  const [winner, setWinner]= useState('');
   const rollDice =()=>{
-    setImage1(diceImages[Math.floor(Math.random()*6)]);
-    setImage2(diceImages[Math.floor(Math.random()*6)]);
+    const dice1Image=Math.floor(Math.random()*6 );
+    const dice2Image=Math.floor(Math.random()*6 );
+    const newSum =(dice1Image + dice2Image +2);
+    setSum(newSum);
+    setImage1(diceImages[dice1Image]);
+    setImage2(diceImages[dice2Image]);
+  
+    if(newSum===7 && condition=='equal'){
+      setWinner('You won');
+    } else if(newSum > 7 && condition=='greaterthan'){
+      setWinner('You won');
+    }
+   else if(newSum < 7 && condition=='lessthan'){
+      setWinner('You won');
+    }
+    else{
+      setWinner('You lose');
+    }
+  };
+  const onConditionChange =(event)=>{
+    setCondition(event.target.value);
   }
-
-
-
+  
 
 
 
@@ -38,11 +58,36 @@ function App() {
         </h1>
         <div className='container'>
           <img className='square' src={image1}/>
-          <div style={{display:'inline-block',width:'15px' }}  ></div>
+          <div style={{display:'inline-block',width:'5px' }}  ></div>
           <img className='square' src={image2} />
+          <div className='condition'> 
+            <h1>Select Condition</h1>
+            <div className='inputs'> 
+          <label  >
+            <input type="radio" checked={condition==='equal'} value={'equal'} onChange={onConditionChange} />
+            Sum will be 7
+          </label>
+          <label >
+            <input type="radio" checked={condition==='greaterthan'} value={'greaterthan'} onChange={onConditionChange}  />
+            Sum will be greater than  7
+          </label>
+          <label >
+            <input type="radio" checked={condition==='lessthan'} value={'lessthan'} onChange={onConditionChange}  />
+            Sum will be less than  7
+          </label>
+          </div>
+          </div>
+         
+          
 
         </div>
-        <button onClick={rollDice} type="button" class="btn btn-outline-primary">Roll Dice</button>
+        <button disabled={!condition} onClick={rollDice} type="button" class="btn btn-outline-primary">Roll Dice</button>
+        { <p>Sum : {sum}</p>
+                  }
+                  {
+                    <h1>{winner}  </h1> 
+                  }
+       
       </center>
       
     </div>
