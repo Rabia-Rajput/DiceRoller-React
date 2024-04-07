@@ -81,7 +81,7 @@ function App() {
           
 
         </div>
-        <button disabled={!condition} onClick={rollDice} type="button" class="btn btn-outline-primary">Roll Dice</button>
+        <button className='btn' disabled={!condition} onClick={rollDice} type="button" class="btn btn-outline-primary">Roll Dice</button>
         { <p>Sum : {sum}</p>
                   }
                   {
