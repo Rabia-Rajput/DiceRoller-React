@@ -4,11 +4,14 @@ body{
 }
 .App {
   text-align: center;
+  
+ 
 
 }
 
 .App h1{
   margin: 8px;
+  color: #313233;
 }
 .container{
   text-align: center;
@@ -51,9 +54,15 @@ input {
   align-items: flex-start;
   margin: 12px auto;
 }
+
 .btn:disabled{
 
  background-color: #6c757d;
   color: #fff;
   cursor: not-allowed;
+}
+.sum{
+  margin-top: 8px;
+  font-size: 25px;
+  font-weight: 600;
 }
