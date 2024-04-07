@@ -23,15 +23,10 @@ function App() {
   const [sum, setSum] = useState(0);
   const [condition, setCondition] = useState('');
   const [winner, setWinner] = useState('');
-  const [showError, setShowError] = useState(false);
+  
 
   const rollDice = () => {
-    if (!condition) {
-      setShowError(true);
-      return;
-    }
-
-    setShowError(false);
+    
 
     const dice1Image = Math.floor(Math.random() * 6);
     const dice2Image = Math.floor(Math.random() * 6);
@@ -53,7 +48,7 @@ function App() {
 
   const onConditionChange = (event) => {
     setCondition(event.target.value);
-    setShowError(false);
+  
   };
 
   return (
